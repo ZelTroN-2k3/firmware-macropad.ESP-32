@@ -5,12 +5,12 @@
  * Auteur     : [ANCHER.P]
  * Date       : 04/10/2025
  * * Description: 
- * Firmware pour un macropad basé sur une carte Pro Micro (ATmega32U4).
+ * Firmware pour un macropad basé sur une carte Arduino Nano ESP32.
  * Gère 9 touches programmables, un encodeur rotatif pour le volume et un écran OLED.
   * un menu de configuration, un screensaver et un menu de démarrage à icônes.
  * * 👉 Fichier principal de configuration : config.h
  * * Composants :
- * - 1x Pro Micro (ATmega32U4)
+ * - 1x Arduino Nano ESP32
  * - 9x Switches mécaniques (Cherry MX ou similaire)
  * - 1x Encodeur rotatif EC11
  * - 1x Écran OLED I2C 0.91" (128x32, driver SSD1306)
@@ -579,3 +579,4 @@ void returnToIconMenu() {
 }
 
 /* ------------------------------ Fin du code -------------------------------- */
+
