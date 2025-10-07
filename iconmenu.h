@@ -65,28 +65,45 @@ void displayCustomScreen(const char* label, const unsigned char* icon, int curso
 }
 
 
-// --- Fonctions du menu d'icônes ---
+
+/**
+ * @brief Dessine le menu d'icônes en incluant l'icône de la couche active et les statuts.
+ */
+ // --- Fonctions du menu d'icônes ---
 void drawIconMenu() {
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(SSD1306_WHITE);
 
-  display.setCursor(0, 4);
-  display.print(F("Layer:"));
-  display.drawBitmap(32, 0, layerIcons[currentLayer], 16, 16, SSD1306_WHITE);
+  // --- PARTIE GAUCHE : Affichage du Layer ---
+  //display.setCursor(0, 4); display.print(F("Layer:"));
+  display.drawBitmap(0, -4, layerIcons[currentLayer], 16, 16, SSD1306_WHITE);
 
-  display.setCursor(88, 4);
-  display.print(F("MENU"));
+  // --- PARTIE CENTRALE : Titre "MENU" ---
+  // On centre le titre pour un meilleur équilibre visuel
+  display.setCursor(52, 2); display.print(F("MENU"));
 
+  // --- PARTIE DROITE : Icônes de Statut ---
+  // Statut Fichier JSON
+  const unsigned char* jsonIcon = SPIFFS.exists("/config.json") ? icon_json_on_16x16 : icon_json_off_16x16;
+  display.drawBitmap(SCREEN_WIDTH - 32, -2, jsonIcon, 16, 16, SSD1306_WHITE);
+
+  // Statut Wi-Fi
+  const unsigned char* wifiIcon = (WiFi.status() == WL_CONNECTED) ? icon_wifi_on_16x16 : icon_wifi_off_16x16;
+  display.drawBitmap(SCREEN_WIDTH - 16, -2, wifiIcon, 16, 16, SSD1306_WHITE);
+
+  // --- Barre d'icônes principale (inchangée) ---
   for (uint8_t i = 0; i < NUM_ICONS; i++) {
     display.drawBitmap(i * 16, 16, iconMenu[i], 16, 16, SSD1306_WHITE);
   }
+  // Affiche l'icône sélectionnée en vidéo inverse
   display.fillRect(selectedIconIndex * 16, 16, 16, 16, SSD1306_INVERSE);
+  
   display.display();
 }
 
 void handleIconMenu() {
-  // ... (La lecture des touches et la gestion de la rotation de l'encodeur ne changent pas) ...
+  // ... (La lecture des touches et la gestion de la rotation de l'encodeur) ...
   for (uint8_t i = 0; i < NUM_KEYS; i++) {
     bool pressed = (digitalRead(KEY_PINS[i]) == LOW);
     if (pressed && !lastKeyState[i]) {
@@ -124,10 +141,28 @@ void handleIconMenu() {
     while(digitalRead(ENC_SW) == LOW) { delay(10); }
 
     switch (selectedIconIndex) {
-      case 0: showMessage("Profil: General"); currentLayer = 0; currentEncoderMode = MODE_VOLUME; break;
-      case 1: showMessage("Profil: Navigation"); currentEncoderMode = MODE_SCROLL; break;
-      case 2: showMessage("Profil: Edition"); currentLayer = 1; currentEncoderMode = MODE_UNDO_REDO; break;
-      case 3: showMessage("Profil: Media"); currentLayer = 2; currentEncoderMode = MODE_VOLUME; break;
+      case 0: 
+        showMessage("Profil: General"); 
+        currentLayer = 0; 
+        currentEncoderMode = MODE_VOLUME; 
+        break;
+
+      case 1: 
+        showMessage("Profil: Navigation"); 
+        currentEncoderMode = MODE_SCROLL; 
+        break;
+
+      case 2: 
+        showMessage("Profil: Edition"); 
+        currentLayer = 1; 
+        currentEncoderMode = MODE_UNDO_REDO; 
+        break;
+
+      case 3: 
+        showMessage("Profil: Media"); 
+        currentLayer = 2; 
+        currentEncoderMode = MODE_VOLUME; 
+        break;
 
       case 4: // Icône WiFi
         openViaRun("ms-settings:network-wifi");
@@ -143,8 +178,18 @@ void handleIconMenu() {
         returnToIconMenu();
         return;
       
-      case 6: showMessage("Profil: Macros"); currentLayer = 0; currentEncoderMode = MODE_VOLUME; break;
-      case 7: isInMenu = true; currentState = STATE_NORMAL; wakeUp(); drawMenu(); return;
+      case 6: 
+        showMessage("Profil: Macros"); 
+        currentLayer = 0; 
+        currentEncoderMode = MODE_VOLUME; 
+        break;
+
+      case 7: 
+        isInMenu = true; 
+        currentState = STATE_NORMAL; 
+        wakeUp(); 
+        drawMenu(); 
+        return;
     }
 
     currentState = STATE_NORMAL;
@@ -154,3 +199,5 @@ void handleIconMenu() {
     showVolume();
   }
 }
+
+/* ------------------------------ Fin du code -------------------------------- */
