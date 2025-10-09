@@ -4,7 +4,9 @@ Ce projet contient le firmware pour un macropad polyvalent et personnalisable,
 basé sur une carte **Arduino Nano ESP32** (ou une autre carte ESP32-S3). Il est conçu pour offrir des fonctionnalités avancées telles que la gestion de couches, 
 des modes pour l'encodeur et un menu de configuration intégré.
 
-![GitHub Issues or Pull Requests](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/edit/main/Images macropad-ESP32/image-01.jpg)
+![GitHub Issues or Pull Requests](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-01.jpg)
+---
+![GitHub Issues or Pull Requests](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-02.jpg)
 
 ## 📂 Structure des Fichiers
 
@@ -119,5 +121,6 @@ Voici le câblage correspondant aux broches définies dans le code :
 
 
 * **Activer/Désactiver le mode Débogage** : Ouvrez le fichier **`debug.h`** et commentez ou décommentez la ligne `#define DEBUG_MODE_ENABLED` pour activer ou désactiver complètement cette fonctionnalité.
+
 
 
