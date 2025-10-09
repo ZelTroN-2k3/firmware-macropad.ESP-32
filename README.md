@@ -36,6 +36,12 @@ Le firmware est organisé en plusieurs fichiers pour une meilleure lisibilité e
 * **Écran OLED 0.91"** affichant des informations contextuelles et des animations.
 
 ---
+## Inerface Web Programation Macropad-ESP32
+
+![GitHub Inerface Web 01](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-01-web.png)
+---
+![GitHub Inerface Web 02](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-02-web.png)
+---
 
 ## 🛠️ Composants et Câblage
 
@@ -121,6 +127,7 @@ Voici le câblage correspondant aux broches définies dans le code :
 
 
 * **Activer/Désactiver le mode Débogage** : Ouvrez le fichier **`debug.h`** et commentez ou décommentez la ligne `#define DEBUG_MODE_ENABLED` pour activer ou désactiver complètement cette fonctionnalité.
+
 
 
 
