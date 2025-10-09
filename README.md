@@ -4,9 +4,9 @@ Ce projet contient le firmware pour un macropad polyvalent, personnalisable et *
 Il est basé sur une carte **Arduino Nano ESP32** et offre des fonctionnalités avancées pour une productivité accrue.
 des modes pour l'encodeur et un menu de configuration intégré.
 
-![GitHub Issues or Pull Requests](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-01.jpg)
+![GitHub Macropad 01](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-01.jpg)
 ---
-![GitHub Issues or Pull Requests](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-02.jpg)
+![GitHub Macropad 02](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-02.jpg)
 
 ## 📂 Structure des Fichiers
 
@@ -38,6 +38,12 @@ des modes pour l'encodeur et un menu de configuration intégré.
 * **Mise en veille automatique** de l'écran.
 
 ---
+
+## Inerface Web Programation Macropad-ESP32
+
+![GitHub Inerface Web 01](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-01-web.png)
+---
+![GitHub Inerface Web 02](https://github.com/ZelTroN-2k3/firmware-macropad.ESP-32/blob/main/Images%20macropad-ESP32/image-02-web.png)
 
 ## 🛠️ Composants et Câblage
 
@@ -110,3 +116,4 @@ Si aucun préfixe n'est utilisé, `run:` est appliqué par défaut.
 * **Modifier les icônes** : Ouvrez le fichier **`icondata.h`** pour ajouter ou modifier les tableaux de bitmaps de vos icônes.
 
 * **Activer/Désactiver le mode Débogage** : Ouvrez le fichier **`debug.h`** et commentez ou décommentez la ligne `#define DEBUG_MODE_ENABLED` pour activer ou désactiver complètement cette fonctionnalité.
+
